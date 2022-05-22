@@ -1,0 +1,412 @@
+
+
+// IMPORTAR
+@import "tipografias";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+
+
+
+// VARIABLES
+    
+$color-fondo:#034e6b;
+$color-titulos:#12698b;
+$color-iconos: #12698b;
+;
+
+
+
+// Anidación o Nesting
+
+body{
+    font-family: "$Familia-tipografica";
+}
+
+
+// MAPS
+
+$seccion: (
+    'espacio-arriba': 30px,
+    'espacio-izq': 0px,
+    'separacion-letras': 3px,
+    'tfuente': 14px,
+    'margen-boton':30px,
+);
+
+// MIXIN
+
+@mixin subtitulo ($color-titulos, $tamaño-subtitulos){
+    color: $color-titulos;
+    font-size: $tamaño-subtitulos;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar{
+    background-color: $color-fondo;
+    height: 75px !important;
+    
+    a{
+        font-size: 14px!important;
+        margin: 15px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        &:active{font-weight: 500!important;}
+    }
+}
+
+.navbar-toggler{
+    border: 0px!important;
+}
+
+
+.principal{
+    background-image: url(../imagenes/Bolivar1.jpg);
+    max-width: 100%;
+    background-size: cover;
+    background-position: top;
+    height: 60vh;
+    text-align: center;
+    padding-top: 150px;
+    border-radius: 0px 0px 0px 60px;
+    h1{
+        font-size: 48px;
+        font-weight: 700;
+        padding: 5px;
+        margin: 0px 15px 15px 0px;
+        color: white;
+        font-style: italic;
+        letter-spacing: 2px;
+    }
+    h6{
+        font-size: 12px;
+        letter-spacing: 3px;
+        color: white;
+        text-transform: uppercase;
+    }
+    .btn{
+        color: #034e6b;
+        font-weight: 700;
+        margin-top: 40px;
+        width: 200px;
+        background-color: white;
+        border: solid 2px white;
+        border-radius: 30px;
+        letter-spacing: 1px;
+        &:hover{
+            background-color: #12698b!important;
+            border: solid 2px #12698b!important;
+            }
+        }
+}
+
+.btn-secundario{
+    color: white;
+    background-color: #12698b!important;
+    border-radius: 50px !important;
+    width: 200px;
+    margin-top: 50px;
+    &:hover{
+        background-color: #034e6b !important;
+        border: solid 2px #034e6b !important;
+        }
+}
+
+.Subtitulo{
+    @include subtitulo ($color-titulos, 30px);
+    margin-bottom: 50px;
+    margin-top: 60px;
+}
+
+/*---------EXTEND--------*/
+
+.card{
+    .title{
+        font-size:21px;
+        color:$color-titulos;
+    }
+
+    .icon{
+        font-size: 25px;
+    }
+}
+
+.card-1{
+    @extend .card;
+}
+
+.card-2{
+    @extend .card;
+}
+
+/*---------END-EXTEND--------*/
+
+.reseñas{
+    border-radius: 0px 60px 0px 0px;
+    .card{border-radius: 0px 15px 0px 15px!important;
+    }
+}
+
+
+.conceptos{
+    font-size: 16px;
+    .bi{
+    color:#12698b;
+    font-size: 55px!important;
+    }
+    h6{
+        font-size: 20px;
+        letter-spacing: 2px;
+        color:rgb(95, 95, 95);
+    }
+}
+
+.frase{
+    padding: 100px 0px 100px 0px;
+    background-color: $color-fondo;
+    margin-top: 100px;
+    color: white;
+    .text-frase{
+        font-size: 35px;
+        font-style: italic;
+    }
+}
+
+
+.links img{
+    width: 90%;
+}
+.Links-fondo{
+    border-radius: 60px 0px 0px 0px;
+    padding-bottom: 80px;
+}
+
+.icon-contacto{
+    margin-top:10px!important;
+    padding-right: 10px;
+}
+
+footer{
+    border-radius: 0px 60px 0px 0px;
+    background-color: #12698b;
+    p{
+        font-size: 15px;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+        &:hover{
+            color:#034e6b;
+            font-weight: 600;
+        }
+    }
+    .contacto .espaciado{
+        padding-left: 25px;
+    }
+}
+
+#scrollUp{
+    position: fixed;
+    right: 30px;
+    font-size: 20px;
+    line-height: 50px;
+    width: 50px;
+    height: 50px;
+    bottom: 30px;
+    background-color: $color-fondo;
+    color:white;
+    -webkit-transition-duration: 500ms;
+    -o-transition-duration: 500ms;
+    transition-duration: 500ms;
+    border-radius: 50%;
+}
+
+/*-------- MAPS  APLICADO--------*/
+.migadepan{
+    margin-top: map-get($map: $seccion, $key: 'espacio-arriba');
+    margin-left: map-get($map: $seccion, $key: 'espacio-izq');
+    letter-spacing: map-get($map:$seccion, $key: 'separacion-letras');
+    font-size: map-get($map: $seccion, $key: 'tfuente');
+    margin-bottom: map-get($map: $seccion, $key: 'margen-boton');
+}
+/*---------------END-MAPS---------------*/
+
+.metodologia{
+    font-size: 18px;
+    padding: 10px;
+    padding-bottom: 150px;
+    .bi{
+        font-size: 35px;
+        color: $color-iconos;
+        padding-right: 20px;
+    }
+    span{
+        font-weight:700;
+    }
+    
+}
+
+
+
+.servicios{
+    padding-bottom: 100px;
+    color: rgb(46, 46, 46);
+    .fa-check{
+    padding-right: 10px!important;
+    color: $color-iconos;}
+}
+
+.epigrafe{
+    font-size: 10px;
+    padding-top: 10px;
+}
+
+form {
+    .text-form{
+    font-size: 15px;
+    margin-top: 3px;
+    padding: 5px 3px;
+    }
+    input {
+    height:40px;
+    width: 100%;
+    padding:5px 8px;
+	display: block;
+    justify-content: center;
+    }
+    textarea {
+    padding:8px;
+    width:100%;
+	display: block;
+    height: 150px;
+    justify-content: center;
+    }
+}
+
+#contacto{
+    font-weight: 500;
+    color: $color-titulos;
+    h4{
+        color: $color-titulos;
+    }
+    .btn-formulario{
+        font-weight: 600;
+        border: 2px solid $color-fondo;
+        background-color: transparent;
+        padding: 10px;
+        width: 150px;
+        margin-top: 30px;
+        margin-bottom: 80px;
+        border-radius: 25px;
+        color: #034e6b;
+        &:hover{
+            background-color: $color-fondo!important;
+            color: white;
+        }
+    }
+}
+
+
+
+
+
+
+.derechos{
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media screen and (max-width:768px){
+    .navbar-nav{
+        background-color: $color-fondo;
+    }   
+}
+
+@media screen and (min-width: 768px){
+    .metodologia{
+        font-size: 16px;
+        padding-bottom: 100px!important;
+        .bi{
+            font-size: 40px;
+        }
+    }
+}
+
+
+@media screen and (min-width:1024px){
+    .principal{
+        padding-left: 100px;
+        border-radius: 0px 0px 0px 150px;
+        padding-top: 150px;
+        text-align: left;
+        h1{
+        font-size:50px;
+        margin-bottom: 5px;
+        }
+        h6{
+        font-size: 16px;
+        }
+    }
+    .conceptos{
+        .bi{
+            font-size: 45px!important;
+        }
+    }
+    footer{
+        border-radius: 0px 150px 0px 0px;
+        .redes{
+            justify-content: space-between!important;
+        }
+        .fav{
+            width: 130px!important;
+        }
+    }
+    .reseñas{
+        border-radius: 0px 150px 0px 0px;
+        .card{
+            border-radius: 0px 35px 0px 35px!important;
+        }
+    }
+    .Links-fondo{
+        border-radius: 150px 0px 0px 0px;
+    }
+    .derechos{
+        font-size: 12px;
+    }
+    .frase{
+        padding: 120px 0px 120px 0px;
+        .text-frase{
+            font-size: 45px;
+        }
+    }
+    #scrollUp{
+        right: 50px;
+        bottom:50px;
+    }
+}
+
+
+
+@media screen and (min-width:1400px){
+    .principal{
+        text-align: center;
+        h1{
+        font-size:65px;
+        }
+        h6{
+        font-size: 20px;
+        }
+    }
+    .conceptos{
+        .bi{
+            font-size: 50px!important;
+        }
+    }
+    
+}
+
